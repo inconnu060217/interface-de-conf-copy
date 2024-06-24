@@ -1,0 +1,155 @@
+@font-face {
+font-family: "icons";
+src: url("../fonts/icons.eot?b577c94c320bf43cc2efe6a3a304cb77#iefix") format("embedded-opentype"),
+url("../fonts/icons.svg?b577c94c320bf43cc2efe6a3a304cb77#icons") format("svg"),
+url("../fonts/icons.ttf?b577c94c320bf43cc2efe6a3a304cb77") format("truetype"),
+url("../fonts/icons.woff?b577c94c320bf43cc2efe6a3a304cb77") format("woff"),
+url("../fonts/icons.woff2?b577c94c320bf43cc2efe6a3a304cb77") format("woff2");
+}
+
+  i[class^="icon-"]:before, i[class*=" icon-"]:before {
+font-family: icons !important;
+font-style: normal;
+font-weight: normal !important;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+    .icon-account-circle:before {
+  content: "\f101";
+  }
+    .icon-alternate-email-rounded:before {
+  content: "\f102";
+  }
+    .icon-arrow-circle-right:before {
+  content: "\f103";
+  }
+    .icon-arrow-down-thick:before {
+  content: "\f104";
+  }
+    .icon-arrow-drop-down:before {
+  content: "\f105";
+  }
+    .icon-arrow-drop-up:before {
+  content: "\f106";
+  }
+    .icon-arrow-left:before {
+  content: "\f107";
+  }
+    .icon-arrow-right:before {
+  content: "\f108";
+  }
+    .icon-arrow-up-thick:before {
+  content: "\f109";
+  }
+    .icon-baseline-add-box:before {
+  content: "\f10a";
+  }
+    .icon-baseline-check:before {
+  content: "\f10b";
+  }
+    .icon-baseline-delete:before {
+  content: "\f10c";
+  }
+    .icon-baseline-pause-circle:before {
+  content: "\f10d";
+  }
+    .icon-baseline-play-circle:before {
+  content: "\f10e";
+  }
+    .icon-baseline-remove-red-eye:before {
+  content: "\f10f";
+  }
+    .icon-call-chat-bold:before {
+  content: "\f110";
+  }
+    .icon-call:before {
+  content: "\f111";
+  }
+    .icon-certificate:before {
+  content: "\f112";
+  }
+    .icon-chat-circle-dots-fill:before {
+  content: "\f113";
+  }
+    .icon-check-circle-rounded:before {
+  content: "\f114";
+  }
+    .icon-check-indeterminate-small:before {
+  content: "\f115";
+  }
+    .icon-close:before {
+  content: "\f116";
+  }
+    .icon-download:before {
+  content: "\f117";
+  }
+    .icon-duplicate:before {
+  content: "\f118";
+  }
+    .icon-edit:before {
+  content: "\f119";
+  }
+    .icon-email-edit:before {
+  content: "\f11a";
+  }
+    .icon-email:before {
+  content: "\f11b";
+  }
+    .icon-home:before {
+  content: "\f11c";
+  }
+    .icon-house-user:before {
+  content: "\f11d";
+  }
+    .icon-ibm-watson-knowledge-studio:before {
+  content: "\f11e";
+  }
+    .icon-icon-baseline-library-music:before {
+  content: "\f11f";
+  }
+    .icon-loader-4-fill:before {
+  content: "\f120";
+  }
+    .icon-music-notes-fill:before {
+  content: "\f121";
+  }
+    .icon-outline-audio-file:before {
+  content: "\f122";
+  }
+    .icon-outline-error:before {
+  content: "\f123";
+  }
+    .icon-outline-headset-mic:before {
+  content: "\f124";
+  }
+    .icon-outline-plus:before {
+  content: "\f125";
+  }
+    .icon-outline-remove:before {
+  content: "\f126";
+  }
+    .icon-programming-broken:before {
+  content: "\f127";
+  }
+    .icon-rule-settings-rounded:before {
+  content: "\f128";
+  }
+    .icon-settings:before {
+  content: "\f129";
+  }
+    .icon-sharp-search:before {
+  content: "\f12a";
+  }
+    .icon-text-snippet:before {
+  content: "\f12b";
+  }
+    .icon-users:before {
+  content: "\f12c";
+  }
+    .icon-wrench:before {
+  content: "\f12d";
+  }
