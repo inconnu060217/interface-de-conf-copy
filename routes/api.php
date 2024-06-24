@@ -18,5 +18,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("mainMenu", [\App\Http\Controllers\MainMenuController::class, "getAll"]);
-Route::get("secondaryMenu", [\App\Http\Controllers\SecondaryMenuController::class, "getAll"]);
+Route::get("/app", [App\Http\Controllers\AppController::class, "app"])->name("app");
+Route::get("/call", [App\Http\Controllers\CallController::class, "call"])->name("call");
+Route::get("/email", [App\Http\Controllers\EmailController::class, "email"])->name("email");
+Route::get("/advanced", [App\Http\Controllers\AdvancedController::class, "advanced"])->name("advanced");
+Route::get("/accueil", [App\Http\Controllers\AcceuilController::class, "acceuil"])->name("accueil");
+
+Route::get("mainMenu", [App\Http\Controllers\MainMenuController::class, "getAll"]);
+Route::get("secondaryMenu", [App\Http\Controllers\SecondaryMenuController::class, "getAll"]);

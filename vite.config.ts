@@ -10,5 +10,11 @@ export default defineConfig({
             refresh: true,
         }),
         vue()
-    ]
+    ],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'resources/js'),
+            'vue': 'vue/dist/vue.esm-bundler.js'
+        },
+    },
 });

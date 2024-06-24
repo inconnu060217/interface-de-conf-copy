@@ -24,6 +24,8 @@
         "tailwind-merge": "^2.3.0",
         "tailwindcss-animate": "^1.0.7",
         "vue": "^3.4.30",
-        "vue-loader": "^17.4.2"
+        "vue-loader": "^17.4.2",
+        "vue-router": "^4.0.13",
+        "vuex": "^4.0.2"
     }
 }

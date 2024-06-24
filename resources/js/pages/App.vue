@@ -1,24 +1,33 @@
 <script lang="ts" setup>
 import {ref, onMounted, Ref, watch} from 'vue'
-import {MenuService} from "../services/MenuService";
-import {TMainMenu} from "../types/TMainMenu";
-import {TParameter} from "../types/TParameter";
+import {MenuService} from "@/services/MenuService";
+import {TMainMenu} from "@/types/TMainMenu";
+import {TParameter} from "@/types/TParameter";
 import Icon from "../components/generics/Icon/Icon.vue";
 const menuService: MenuService = new MenuService()
+import Spinner from "@/components/generics/loader/Spinner.vue";
+import {loaderStore} from "@/stores/useLoaderStore";
 
 const mainManus: Ref<TMainMenu[]> = ref();
 const parameters: Ref<TParameter[]> = ref();
+
 const handleGetMainMenu = async () => {
     try {
+        loaderStore.mutations.openSpinner()
         const response = await menuService.handleGetMainMenu()
         mainManus.value = response.data.menu
         parameters.value = response.data.parameter
         console.log(response.data)
     } catch (e) {
         console.error(e)
+    }finally {
+        loaderStore.mutations.closeSpinner();
     }
 }
-
+const redirectPage = (path:string) => {
+    if (path === "/chat" || path === "/messaging") return;
+    window.location.href = path;
+}
 
 
 onMounted(() => {
@@ -41,8 +50,13 @@ onMounted(() => {
             <div class="main-content-navigation">
                 <div class="container">
                     <div class="box-container">
-                        <div class="box" v-for="(route, index) in mainManus" :key="index"
-                             :class="'' + (parameters[0][route.value.toLowerCase()] === 0 ? ' disable-menu' : '')">
+                        <div
+                            class="box"
+                            v-for="(route, index) in mainManus"
+                            :key="index"
+                            :class="'' + (parameters[0][route.value.toLowerCase()] === 0 ? ' disable-menu' : '')"
+                            @click="redirectPage(route.path)"
+                        >
                             <h2 >
                                 {{ route.name }}
                             </h2>
@@ -52,6 +66,7 @@ onMounted(() => {
                 </div>
             </div>
         </div>
+        <Spinner v-if="loaderStore.state.isLoading" />
     </div>
 </template>
 
@@ -72,9 +87,7 @@ onMounted(() => {
     font-size: 1.5rem;
 }
 .content-logo {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    height: 8rem
+
 }
 .logo {
     width: 15rem;
@@ -157,7 +170,7 @@ h4{
 
 
 .box:hover {
-    box-shadow: 0 5px 10px var(--secondary-color1);
+    box-shadow: 0 5px 10px var(--secondary-clear-color1);
     transform: scale(1.02);
 }
 
@@ -173,4 +186,6 @@ h2 {
     font-size: 1.5rem;
     color: var(--primary-color1);
 }
+
+
 </style>
