@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 import {ref, onMounted, Ref, watch} from 'vue'
-import {MenuService} from "@/services/MenuService";
+import {SMenu} from "@/services/SMenu";
 import {TMainMenu} from "@/types/TMainMenu";
 import {TParameter} from "@/types/TParameter";
 import Icon from "../components/generics/Icon/Icon.vue";
-const menuService: MenuService = new MenuService()
+
 import Spinner from "@/components/generics/loader/Spinner.vue";
 import {loaderStore} from "@/stores/useLoaderStore";
 
+const menuService: SMenu = new SMenu()
 const mainManus: Ref<TMainMenu[]> = ref();
 const parameters: Ref<TParameter[]> = ref();
 

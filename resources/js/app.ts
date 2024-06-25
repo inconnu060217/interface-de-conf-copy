@@ -21,6 +21,7 @@ import Messaging from "./pages/Messaging.vue";
 // @ts-ignore
 import Unauthorized from "./pages/Unauthorized.vue";
 import {loaderStore} from "./stores/useLoaderStore";
+import {tableStore} from "./stores/useTableStore";
 
 
 import "../css/app.css"
@@ -29,7 +30,8 @@ const app = createApp({});
 
 const store = createStore({
     modules: {
-        loader: loaderStore
+        loader: loaderStore,
+        table: tableStore,
     },
 });
 

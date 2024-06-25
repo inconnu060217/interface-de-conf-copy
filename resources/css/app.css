@@ -14,8 +14,8 @@
 
 :root {
     font-family: Open Sans,sans-serif;
-    --primary-color1: rgb(62, 168, 166);
-    --primary-clear-color1: rgba(106, 222, 212, 1);
+    --primary-color1: rgba(28, 154, 151, 1);
+    --primary-2-color1: rgba(24, 109, 108, 1);
     --primary-color2: rgba(44, 60, 76, 1);
     --primary-color3: rgba(236, 248, 249, 1);
     --secondary-color1: rgba(78, 79, 235, 1);
@@ -23,6 +23,7 @@
     --secondary-color2: rgba(119, 242, 161, 1);
     --secondary-color3: rgba(252, 155, 80, 1);
     --color-white: rgba(255, 255, 255, 1);
+    --sidebar-width: 250px;
 }
 
 @layer base {
