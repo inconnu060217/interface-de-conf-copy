@@ -18,6 +18,7 @@ export class UCookies
             return cookieValue;
         }
     }
+
     // Met à jour le cookie avec les informations du groupe sélectionné
     static updateCookie (selectedGroupCurrent: string, groupsLists: Array<any>) {
         const GroupCurrent = selectedGroupCurrent;
@@ -27,10 +28,12 @@ export class UCookies
         }
         location.reload()
     }
+
     // Crée un cookie avec la clé et la valeur spécifiées
     static setCookie(key: string, value: any){
         document.cookie = `${key}=${value};`
     }
+
     // Récupère la valeur du cookie avec le nom spécifié
     static getCookie(name: string) {
         const match = document.cookie.match(
@@ -41,6 +44,7 @@ export class UCookies
         }
         return null;
     }
+
     static getCookieIdGroupe() {
         let kid_groupe = "id_groupe"
         const match = document.cookie.match(
@@ -51,6 +55,7 @@ export class UCookies
         }
         return null;
     }
+
     static getCookieKidGroupe() {
         let kid_groupe = "kid_groupe"
         const match = document.cookie.match(
@@ -61,6 +66,7 @@ export class UCookies
         }
         return null;
     }
+
     // Crée un cookie avec la clé et la valeur spécifiées pour le menu
     static setCookieMenu(key: string, value: string){
         if(key && value) {

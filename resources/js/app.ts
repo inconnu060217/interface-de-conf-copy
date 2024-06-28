@@ -22,7 +22,9 @@ import Messaging from "./pages/Messaging.vue";
 import Unauthorized from "./pages/Unauthorized.vue";
 import {loaderStore} from "./stores/useLoaderStore";
 import {tableStore} from "./stores/useTableStore";
-
+import {entryPointStore} from "./stores/call/useEntryPointStore";
+import {UseModalStore} from "./stores/useModalStore";
+import {QueueCallStore} from "./stores/call/useQueueCallStore";
 
 import "../css/app.css"
 import "../js/components/generics/Icon/css/icons.css"
@@ -32,6 +34,9 @@ const store = createStore({
     modules: {
         loader: loaderStore,
         table: tableStore,
+        entryPoint: entryPointStore,
+        modal: UseModalStore,
+        QueueCall: QueueCallStore
     },
 });
 

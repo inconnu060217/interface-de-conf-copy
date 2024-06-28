@@ -1,0 +1,40 @@
+export enum Components {
+    OPEN_MODEL= "openModal",
+
+    EntryPoint = "EntryPoint",
+    QueuesCall = "QueuesCall",
+    Assignment = "Assignment",
+    Libraries = "Libraries",
+    TextToSpeech = "TextToSpeech",
+    QueuesEmail = "QueuesEmail",
+    ContentEditors = "ContentEditors",
+    AcknowledgementsOfReceip = "AcknowledgementsOfReceip",
+    RoutingRule = "RoutingRules",
+    Trace = "Trace",
+    EDIT_ENTRY_POINT = "EditEntryPoint",
+    EditQueueCall = "EditQueueCall",
+    EditQueueEmail = "EditQueueEmail",
+    EditLibraryWAV = "EditLibraryWAV",
+    EditLibraryTTS = "EditLibraryTTS",
+    AddLibraryTTS = "AddLibraryTTS",
+    AddLibraryWAV = "AddLibraryWAV",
+    DeleteLibraryTTS = "DeleteLibraryTTS",
+    DeleteLibraryWAV = "DeleteLibraryWAV",
+    EditGlobal = "EditGlobal",
+    EditReceiptOfEmail = "EditReceiptOfEmail",
+    EditFlash = "EditFlash",
+    EditExceptionalClosure = "EditExceptionalClosure",
+    EditClosingSchedule = "EditClosingSchedule",
+    AddException = "AddException",
+    EditException = "EditException",
+    DeleteException = "DeleteException",
+    EditContentEditor = "EditContentEditor",
+    AddTextToSpeech = "AddTextToSpeech",
+    DeleteTextToSpeech = "DeleteTextToSpeech",
+    AddRuleEmail = "AddRuleEmail",
+    editRuleEmail = "editRuleEmail",
+
+
+    // ROUTING RULE
+    VISUALIZE_ROUTING_RULE = "VisualizeRoutingRule"
+}

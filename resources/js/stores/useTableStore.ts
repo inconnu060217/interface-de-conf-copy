@@ -9,7 +9,7 @@ const initialState: IState = {
 export const tableStore = {
     state: initialState,
     getters: {
-        component: (state: IState) => state.componentName
+        componentTable: (state: IState) => state.componentName
     },
     mutations: {
         openTable: (state: IState, componentName: any): void => {

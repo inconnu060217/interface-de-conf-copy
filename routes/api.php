@@ -26,3 +26,11 @@ Route::get("/accueil", [App\Http\Controllers\AcceuilController::class, "acceuil"
 
 Route::get("mainMenu", [App\Http\Controllers\MainMenuController::class, "getAll"]);
 Route::get("secondaryMenu", [App\Http\Controllers\SecondaryMenuController::class, "getAll"]);
+Route::get("group", [App\Http\Controllers\GroupController::class, "getAll"]);
+Route::get("entryPoint", [App\Http\Controllers\EntryPointController::class, "getAll"]);
+Route::put("entryPoint", [App\Http\Controllers\EntryPointController::class, "update"]);
+Route::get("entryPointType", [App\Http\Controllers\EntryPointTypeController::class, "getAll"]);
+Route::get("queueCallWebService", [App\Http\Controllers\QueueCallController::class, "getAllQueueWebServices"]);
+Route::get("svis", [App\Http\Controllers\SvisController::class, "getAll"]);
+
+

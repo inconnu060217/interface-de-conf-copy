@@ -5,36 +5,16 @@ import { computed, onMounted, Ref, ref } from "vue";
 import { Icons } from "./generics/Icon/Icons";
 import Icon from "./generics/Icon/Icon.vue";
 import { tableStore } from "@/stores/useTableStore";
-import {SMenu} from "@/services/SMenu";
-import {loaderStore} from "@/stores/useLoaderStore";
-import {TSecondaryMenu} from "@/types/TSecondaryMenu";
+import {TSecondaryMenu} from "@/types/TSecondaryMenu.ts";
 
-
-const menuService: SMenu = new SMenu()
-const secondaryMenus: Ref<TSecondaryMenu[]> = ref()
 const currentSettingActive = "";
 const isOpen: Ref<boolean> = ref(true);
+const props = defineProps<{
+    secondaryMenus: TSecondaryMenu[]
+}>();
 
 const store = useStore();
-const currentMenu = computed(() => tableStore.getters.component);
-
-function urlMediaCurrent() {
-    let url = window.location.href;
-    let path = url.split("/");
-    return path[path.length - 1];
-}
-
-const handleGetSecondaryMenu = async () => {
-    try {
-        loaderStore.mutations.openSpinner()
-        const response = await menuService.handleGetSecondaryMenu(urlMediaCurrent())
-        secondaryMenus.value = response.data
-    } catch (e) {
-        console.error(e)
-    }finally {
-        loaderStore.mutations.closeSpinner();
-    }
-}
+const currentMenu = computed(() => tableStore.state.componentName);
 
 function setIsOpen(isO: boolean) {
     isOpen.value = isO;
@@ -49,26 +29,21 @@ function handleToggleMenu(settingMenu: string, name: string, path: string) {
     UCookies.setCookieMenu("currentMenuActive", settingMenu);
 }
 
-
-
 function backHome() {
     window.location.href = 'app';
 }
 
-onMounted(() => {
-    handleGetSecondaryMenu()
-});
 </script>
 
 <template>
-    <div :class="'sidebar-container' + (!isOpen ? ' sidebar-close' : '')">
+    <div :class="'sidebar-container bg-primary' + (!isOpen ? ' sidebar-close' : '')">
         <div class="close-icon" @click="() => setIsOpen(!isOpen)">
             <Icon :name="isOpen ? Icons.IconArrowLeft : Icons.IconArrowRight"/>
         </div>
         <div class="sidebar-content-container">
             <div class="sidebar-content-wrapper">
                 <div class="sidebar-content">
-                    <a v-for="route in secondaryMenus" :key="route.id" :class="{ active: currentMenu === route.setting }">
+                    <a v-for="route in props.secondaryMenus" :key="route.id" :class="{ active: currentMenu === route.setting }">
                         <Icon @click="handleToggleMenu(route.setting, route.name, route.path)" :name="route.icon" class-name="icon"/>
                         <span
                             v-if="isOpen"
@@ -94,7 +69,6 @@ onMounted(() => {
     left: 0;
     width: var(--sidebar-width);
     height: 100%;
-    background: var(--primary-color1);
     transition: width 300ms ease;
     font-family: 'Roboto', sans-serif;
     z-index: 10;
