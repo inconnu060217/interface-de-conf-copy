@@ -1,4 +1,5 @@
 export enum Icons {
+  Icon3DotsScale = "icon-3-dots-scale",
   IconAccountCircle = "icon-account-circle",
   IconAlternateEmailRounded = "icon-alternate-email-rounded",
   IconArrowCircleRight = "icon-arrow-circle-right",
@@ -44,5 +45,4 @@ export enum Icons {
   IconTextSnippet = "icon-text-snippet",
   IconUsers = "icon-users",
   IconWrench = "icon-wrench",
-    Icon3DotsScale = "icon-3-dots-scale"
 }

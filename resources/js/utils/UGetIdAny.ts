@@ -7,8 +7,6 @@ export class UGetIdAny {
     }
 
     static getIdSVI = (name: string, dataSvis: SviType[]) => {
-        console.log(name)
-        console.log(dataSvis)
         return Number(String(dataSvis.find((svi: any) => svi.name === name)?.id))
     }
 

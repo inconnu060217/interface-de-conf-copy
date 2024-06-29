@@ -14,6 +14,7 @@ import {useStore} from "vuex";
 import {UCookies} from "@/utils/UCookies";
 import {ActionStore} from "@/constants/ActionStore";
 import Modal from "@/components/generics/Modal/Modal.vue";
+import Alert from "@/components/generics/alert/Alert.vue";
 
 const store = useStore();
 const sGroup = new SGroup();
@@ -72,6 +73,7 @@ onMounted(() => {
                 <Content>
                     <Table />
                     <Modal />
+                    <Alert />
                 </Content>
             </div>
         </div>

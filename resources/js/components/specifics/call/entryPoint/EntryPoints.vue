@@ -58,7 +58,11 @@ const editEntryPoint = (entryPointId: number) => {
                 <TableCell>{{ entryPoint.routage }}</TableCell>
                 <TableCell >{{ entryPoint.numero_presente }}</TableCell>
                 <TableCell>
-                    <Button text="Edit" :handle-function="()=>editEntryPoint(entryPoint.id_point_entree)"/>
+                    <Button
+                        text="Edit"
+                        :handle-function="()=>editEntryPoint(entryPoint.id_point_entree)"
+                        :alignLeft="true"
+                    />
                 </TableCell>
             </TableRow>
         </TableBody>

@@ -21,7 +21,7 @@ import {SEntryPoint} from "@/services/call/SEntryPoint";
 
 const sEntryPoint:SEntryPoint = new SEntryPoint()
 
-    let disabled: Ref<boolean>= ref(true)
+    let disabled: Ref<boolean>= ref(false)
     const store = useStore()
     const entryPointCurrent = computed(()=> store.getters.findByIdEntryPoint)
     const queueCallWebServices: Ref<QueueCallWebServiceType[]> = computed(()=> store.getters.findQueueCallWebServe)
@@ -36,7 +36,7 @@ const sEntryPoint:SEntryPoint = new SEntryPoint()
         newEntryPoint.value.routage = newEntryPoint.value.name_svi
         newEntryPoint.value.kid_svi = UGetIdAny.getIdSVI(newEntryPoint.value.name_svi, svis.value)
       }
-      if(newEntryPoint.value.nom === Constants.FILE_ATTENTE) {
+      if(newEntryPoint.value.nom === Constants.QUEUE_CALL) {
         newEntryPoint.value.routage = newEntryPoint.value.name_file_attente
         newEntryPoint.value.kid_file_attente = UGetIdAny.getIdQueueCall(newEntryPoint.value.name_file_attente, queueCallWebServices.value)
       }
@@ -46,27 +46,22 @@ const sEntryPoint:SEntryPoint = new SEntryPoint()
            setTimeout(async ()=>{
                try {
                 const response: any = await sEntryPoint.handleUpdateEntryPoint(newEntryPoint.value)
-                console.log(response.data)
+                //console.log(response.status)
+                   if(response.status === 200){
+                       store.commit(ActionStore.UPDATE_ENTRY_POINT_MUTATION, newEntryPoint.value)
+                       store.commit(ActionStore.CLOSE_MODAL)
+                       store.commit(ActionStore.OPEN_ALERT, response.data.message)
+                       setTimeout(() => {
+                           store.commit(ActionStore.CLOSE_ALERT);
+                       }, 3000);
+                   }
+
                }catch (e){
                    console.error(e)
                }finally {
                    disabled.value = false
                }
             },2000)
-
-
-      /*store.dispatch(ActionStore.UPDATE_ENTRY_POINT_ACTION, newEntryPoint.value).then(async (response)=>{
-        disabled.value = true
-        if(response.ok && response.status === 200) {
-          const jsonResponse = await response.json()
-          store.commit(ActionStore.OPEN_ALERT, jsonResponse.message )
-          disabled.value = false
-          store.commit(ActionStore.CLOSE_MODAL)
-          setTimeout(()=> {
-            store.commit(ActionStore.CLOSE_ALERT)
-          },3000)
-        }
-      })*/
     }
 
 </script>
@@ -144,10 +139,19 @@ const sEntryPoint:SEntryPoint = new SEntryPoint()
                 class="col-span-3 text-secondary bg-third"
             />
         </div>
-        <Button
-            text="Valider"
-            :handle-function="()=>editEntryPoint()"
-            :isDisabled="disabled"
-        />
+        <div class="flex justify-end">
+            <Button
+                class="mr-1"
+                text="Cancel"
+                cancel
+                :handle-function="()=>store.commit(ActionStore.CLOSE_MODAL)"
+            />
+            <Button
+                text="Valider"
+                :handle-function="()=>editEntryPoint()"
+                :isDisabled="disabled"
+            />
+        </div>
+
     </div>
 </template>
