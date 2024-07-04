@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import { Icons } from '../Icon/Icons';
-import icon from "../Icon/Icon.vue";
-import Icon from "@/components/generics/Icon/Icon.vue";
 const props = defineProps({
     text: {
         type: String
@@ -28,8 +25,10 @@ const props = defineProps({
         <button
             @click="props.handleFunction"
             type="button"
-            :class="{'bg-red-600': props.cancel }"
-            class="inline-flex items-center min-w-[7rem] justify-center rounded-md bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+            :class="[
+                props.cancel ? 'bg-red-600' : 'bg-secondary',
+                'inline-flex items-center min-w-[6rem] justify-center rounded-md px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-hoverBtn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hoverBtn'
+              ]"
         >
             <span v-if="!isDisabled">{{ props.text }}</span>
             <div v-else  class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>

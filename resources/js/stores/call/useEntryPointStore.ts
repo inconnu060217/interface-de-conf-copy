@@ -103,26 +103,6 @@ export const entryPointStore = {
             }
             return state.svis
         },
-/*        async updateEntryPointAction({ commit }, data: EntryPointType): Promise<Response| any> {
-            try {
-                const dataSend = {
-                    id_point_entree: data.id_point_entree,
-                    id_type_point_entree: data.id_type_point_entree,
-                    kid_file_attente: data.kid_file_attente,
-                    numero_presente: data.numero_presente,
-                    kid_svi: data.kid_svi,
-                    renvoi: data.renvoi
-                }
-                const response: any = await sEntryPoint.handleUpdateEntryPoint();
-                if (!response.ok) {
-                    return;
-                }
-                commit("updateEntryPointMutation", data);
-                return response;
-            } catch (error) {
-                console.error(error);
-            }
-        },*/
         findAllEntryPointTypeAction({ state, commit }) {
             if (!state.isLoadingEntryPointType) {
                 sEntryPoint.handleGetEntryPointType().then(async (response: any):Promise<Response| null | undefined> => {

@@ -11,7 +11,6 @@ import {
     SelectItem
 } from '@/components/shadcn/ui/select';
 import { TGroup } from '@/types/TGroup';
-const groups = ref<TGroup[]>([]);
 const selectedGroup = ref("");
 
 const props = defineProps<{
@@ -20,7 +19,7 @@ const props = defineProps<{
 }>();
 
 watchEffect(() => {
-    selectedGroup.value = UCookies.checkCookie(groups.groups);
+    selectedGroup.value = UCookies.checkCookie(props.groups);
 
 });
 

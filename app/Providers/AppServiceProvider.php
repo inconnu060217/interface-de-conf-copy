@@ -10,6 +10,10 @@ use App\Services\call\entryPointTypes\EntryPointTypeRepository;
 use App\Services\call\entryPointTypes\EntryPointTypeService;
 use App\Services\call\entryPointTypes\IEntryPointTypeRepository;
 use App\Services\call\entryPointTypes\IEntryPointTypeService;
+use App\Services\call\plannings\IPlanningRepository;
+use App\Services\call\plannings\IPlanningService;
+use App\Services\call\plannings\PlanningRepository;
+use App\Services\call\plannings\PlanningService;
 use App\Services\call\queueCalls\IQueueCallRepository;
 use App\Services\call\queueCalls\IQueueCallService;
 use App\Services\call\queueCalls\QueueCallRepository;
@@ -40,6 +44,8 @@ use App\Services\secondaryMenus\ISecondaryMenuRepository;
 use App\Services\secondaryMenus\ISecondaryMenuService;
 use App\Services\secondaryMenus\SecondaryMenuRepository;
 use App\Services\secondaryMenus\SecondaryMenuService;
+use App\Services\webService\planningWebService\IPlanningWebServiceService;
+use App\Services\webService\planningWebService\PlanningWebServiceService;
 use App\Services\webService\queueCallWebServices\IQueueCallWebServiceService;
 use App\Services\webService\queueCallWebServices\QueueCallWebServiceService;
 use App\Services\webService\svisWebServices\ISviWebServiceService;
@@ -74,6 +80,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IQueueCallWebServiceService::class, QueueCallWebServiceService::class);
         $this->app->bind(IQueueCallService::class, QueueCallService::class);
         $this->app->bind(IQueueCallRepository::class, QueueCallRepository::class);
+        $this->app->bind(IPlanningRepository::class, PlanningRepository::class);
+        $this->app->bind(IPlanningService::class, PlanningService::class);
+        $this->app->bind(IPlanningWebServiceService::class, PlanningWebServiceService::class);
     }
 
     /**

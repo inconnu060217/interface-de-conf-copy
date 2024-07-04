@@ -21,9 +21,10 @@ function setIsOpen(isO: boolean) {
 }
 
 function handleToggleMenu(settingMenu: string, name: string, path: string) {
-    if (path) {
+  /*  if (path !== null && path !== undefined && path !== '') {
+        console.log("@@@@")
         store.commit("findPathMutation", { name, path });
-    }
+    }*/
 
     store.commit('openTable', settingMenu);
     UCookies.setCookieMenu("currentMenuActive", settingMenu);

@@ -15,16 +15,16 @@ class QueueCallService implements  IQueueCallService
 
     private IQueueCallRepository $IQueueCallRepository;
 
-    //private IPlanningService $iPlanningService;
+    private IPlanningService $iPlanningService;
 
     public function __construct(
         ILogErrorService              $iLogErrorService,
 
         IQueueCallWebServiceService $IQueueCallWebServiceService,
 
-        IQueueCallRepository          $IQueueCallRepository,
+        IQueueCallRepository $IQueueCallRepository,
 
-        //IPlanningService              $iPlanningService
+        IPlanningService $iPlanningService
 
         )
     {
@@ -34,7 +34,7 @@ class QueueCallService implements  IQueueCallService
 
         $this->IQueueCallRepository = $IQueueCallRepository;
 
-        //$this->iPlanningService = $iPlanningService;
+        $this->iPlanningService = $iPlanningService;
 
     }
     public function findIdFileAttenteCallback($dataServiceNameFileAttente, $item2) {
@@ -101,8 +101,8 @@ class QueueCallService implements  IQueueCallService
     }
 
 
-    public function getAll ($idGroupe, $kidGroupe){
-        /*try {
+    public function getAll ($idGroupe, $kidGroupe) : JsonResponse{
+        try {
 
             $methode = 'Fichier: QueueCallService - methode: getAll -';
 
@@ -145,10 +145,10 @@ class QueueCallService implements  IQueueCallService
 
             return response()->json($th->getMessage());
 
-        }*/
+        }
     }
 
-    public function getAllQueueWebServices ($kidGroupe)
+    public function getAllQueueWebServices ($kidGroupe): JsonResponse
     {
         try {
             $methode = 'Fichier: QueueCallService - methode: getAllQueueWebServices -';

@@ -2,7 +2,7 @@
 import {Components} from "@/constants/Components.ts";
 import EntryPoint from "../../specifics/call/entryPoint/EntryPoints.vue";
 import {useStore} from "vuex";
-//import QueuesCall from "../../specifics/call/queue/Queues.vue";
+import Queues from "@/components/specifics/call/queue/Queues.vue";
 //import Libraries from "../../specifics/call/library/Libraries.vue";
 /*import QueuesEmail from "../../specifics/email/queue/Queues.vue";
 import ContentEditors from "../../specifics/email/content_editor/ContentEditors.vue";
@@ -20,10 +20,10 @@ const create = () => {
         case Components.EntryPoint:
             comp = EntryPoint;
             break;
-        /*case Components.QueuesCall:
-            comp = QueuesCall;
+        case Components.QueuesCall:
+            comp = Queues;
             break;
-        case Components.Assignment:
+        /*case Components.Assignment:
             comp = Assignment;
             break;
         case Components.Libraries:

@@ -36,6 +36,9 @@ export class ApiEndpoint {
     public async handleGetQueueCallWebService (kidGroupe: string) {
         return await axiosInstance.get(`queueCallWebService?kidGroupe=${kidGroupe}`);
     }
+    public async handleGetQueueCall (idGroupe: string, kidGroupe: string) {
+        return await axiosInstance.get(`queueCall?idGroupe=${idGroupe}&kidGroupe=${kidGroupe}`);
+    }
     public async handleUpdateEntryPoint (data: EntryPointType) {
         return await axiosInstance.put(`entryPoint?entryPointId=${data.id_point_entree}`,
             {data},

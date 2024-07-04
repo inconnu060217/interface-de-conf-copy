@@ -19,7 +19,9 @@ class QueueCallController extends Controller
         $this->request = $request;
         $this->IQueueCallService = $IQueueCallService;
     }
-    public function getAll ($idGroupe, $kidGroupe) {
+    public function getAll () {
+        $idGroupe = $this->request->query('idGroupe');
+        $kidGroupe = $this->request->query('kidGroupe');
         return $this->IQueueCallService->getAll(intval($idGroupe), intval($kidGroupe));
     }
     public function getAllQueueWebServices () {

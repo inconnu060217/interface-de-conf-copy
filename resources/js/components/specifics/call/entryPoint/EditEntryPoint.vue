@@ -2,7 +2,7 @@
 import {computed, onMounted, ref, Ref} from "vue";
 import {EntryPointType, EntryPointTypeType, SviType} from "@/types/TEntryPoint";
 import {useStore} from "vuex";
-import { QueueCallWebServiceType} from "../../../../types/call/QueueCallType";
+import { QueueCallWebServiceType} from "@/types/TQueueCall";
 import {UGetIdAny} from "@/utils/UGetIdAny";
 import {Constants} from "@/constants/Constants";
 import {ActionStore} from "@/constants/ActionStore";

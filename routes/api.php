@@ -32,5 +32,7 @@ Route::put("entryPoint", [App\Http\Controllers\EntryPointController::class, "upd
 Route::get("entryPointType", [App\Http\Controllers\EntryPointTypeController::class, "getAll"]);
 Route::get("queueCallWebService", [App\Http\Controllers\QueueCallController::class, "getAllQueueWebServices"]);
 Route::get("svis", [App\Http\Controllers\SvisController::class, "getAll"]);
+Route::get("queueCall", [App\Http\Controllers\QueueCallController::class, "getAll"]);
+
 
 
